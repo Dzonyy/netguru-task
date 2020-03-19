@@ -3,6 +3,8 @@ class Movie < ApplicationRecord
   belongs_to :genre
   belongs_to :genre, counter_cache: true
 
+  has_many :comments
+
   def movie_details
     begin
       MovieApi::Movie.cached_find(self.title).try(:first)

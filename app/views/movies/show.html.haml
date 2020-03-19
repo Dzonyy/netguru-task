@@ -20,5 +20,20 @@
                         = @movie.public_send(attr_name)
       - if user_signed_in?
         .panel-footer
-          = link_to 'Email me details about this movie', send_info_movie_path(movie), class: 'btn btn-sm btn-default'
+          = link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
 
+    %h3 Comments
+    - @comments.each do |comment|
+      .well
+        .pull-right
+          = comment.created_at
+        %b= comment.user.name
+        .comment-content
+          %p= comment.text
+          - if comment.user == current_user
+            .text-right
+              = link_to 'Delete', [@movie, comment], method: :delete, class: 'btn btn-sm btn-danger',
+                data: { confirm: 'Are you sure you want to delete this comment?' }
+
+    -# .text-center
+      -# = paginate @comments, window: 2
