@@ -1,12 +1,16 @@
 source "https://rubygems.org"
 
+ruby '2.6.5'
+
 gem "rails", "5.2"
 
 gem "annotate"
 gem "bootstrap-sass"
 gem "devise"
+gem 'dotenv-rails'
 gem "draper"
 gem "haml-rails"
+gem 'json_api_client'
 gem "jquery-rails"
 gem "sass-rails"
 gem "sqlite3"
