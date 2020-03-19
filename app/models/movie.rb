@@ -8,6 +8,7 @@ class Movie < ApplicationRecord
       MovieApi::Movie.cached_find(self.title).try(:first)
     rescue JsonApiClient::Errors::ApiError => e
       Rails.logger.error("MovieApi::Movie.cached_find(#{self.title}) threw an error: #{e.message}")
+      nil
     end
   end
 end
