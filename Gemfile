@@ -9,6 +9,8 @@ gem "bootstrap-sass"
 gem "devise"
 gem 'dotenv-rails'
 gem "draper"
+gem "decent_decoration"
+gem "decent_exposure"
 gem "haml-rails"
 gem 'json_api_client'
 gem "jquery-rails"
@@ -42,4 +44,5 @@ end
 
 group :test do
   gem "shoulda-matchers"
+  gem 'webmock'
 end
