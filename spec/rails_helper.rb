@@ -1,5 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= "test"
+ENV["MOVIE_API_HOSTNAME"] ||= "test"
 require "spec_helper"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
