@@ -1,14 +1,11 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:send_info, :export]
 
-  def index
-    @movies = Movie.all.decorate
-  end
+  expose_decorated :movies, -> { Movie.all }
+  expose_decorated :movie
 
-  def show
-    @movie = Movie.find(params[:id]).decorate
-    @comments = Comment.where(movie_id: @movie)
-  end
+  expose_decorated :comments, -> { movie.comments.order(created_at: :desc) }
+  expose :comment, id: ->{ params[:comment_id] }, parent: :movie
 
   def send_info
     @movie = Movie.find(params[:id])
