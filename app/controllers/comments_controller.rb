@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
 
   def create
     if comment.save
-      redirect_to movie_path(params[:movie_id]), notice: 'Comment created successfully'
+      redirect_to movie_path(params[:movie_id]), notice: "Comment created successfully"
     else
-      redirect_to movie_path(params[:movie_id]), alert: 'New comment is empty or you have already commented this movie'
+      redirect_to movie_path(params[:movie_id]), alert: "New comment is empty or you have already commented this movie"
     end
   end
 
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
       redirect_to movie_path(params[:movie_id]), alert: "You don't own this comment"
     else
       comment.destroy
-      redirect_to movie_path(params[:movie_id]), notice: 'Comment deleted successfully'
+      redirect_to movie_path(params[:movie_id]), notice: "Comment deleted successfully"
     end
   end
 

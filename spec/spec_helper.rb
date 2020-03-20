@@ -1,13 +1,13 @@
 
 # we need rails every time
-require 'rails_helper'
+require "rails_helper"
 
 # disable internet connections for integration tests
-require 'webmock/rspec'
+require "webmock/rspec"
 WebMock.disable_net_connect!
 
 # load all support modules
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -18,13 +18,13 @@ RSpec.configure do |config|
   config.include RequestSpecHelper, type: :request
 
   config.before(:each) do
-    allow(MovieApi).to receive(:hostname).and_return('api.example.org')
-    stub_request(:get, /api.example.org/).
-        to_return(status: 200,
-                  headers: {'Content-Type'=>'application/vnd.api+json'},
-                  body: File.new(
-                      Rails.root.join('spec','fixtures','api_movie_response.json')
-                  ).read)
+    allow(MovieApi).to receive(:hostname).and_return("api.example.org")
+    stub_request(:get, /api.example.org/)
+      .to_return(status: 200,
+                 headers: { "Content-Type" => "application/vnd.api+json" },
+                 body: File.new(
+                   Rails.root.join("spec", "fixtures", "api_movie_response.json")
+                 ).read)
   end
 
   config.before(:each) do

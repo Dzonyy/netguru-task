@@ -8,8 +8,8 @@ module MovieApi
     property :poster, type: :string
 
     def poster_url
-      if self.poster.present?
-        "https://#{ENV['MOVIE_API_HOSTNAME']}#{self.poster}"
+      if poster.present?
+        "https://#{ENV['MOVIE_API_HOSTNAME']}#{poster}"
       end
     end
   end

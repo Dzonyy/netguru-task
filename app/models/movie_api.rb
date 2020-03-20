@@ -1,5 +1,5 @@
 module MovieApi
   def self.hostname
-    ENV['MOVIE_API_HOSTNAME']
+    ENV["MOVIE_API_HOSTNAME"]
   end
 end

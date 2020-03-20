@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   expose_decorated :movie
 
   expose_decorated :comments, -> { movie.comments.order(created_at: :desc) }
-  expose :comment, id: ->{ params[:comment_id] }, parent: :movie
+  expose :comment, id: -> { params[:comment_id] }, parent: :movie
 
   def send_info
     @movie = Movie.find(params[:id])

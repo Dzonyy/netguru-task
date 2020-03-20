@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :movie
 
   validates :text,  presence: true
-  validates :user_id,  presence: true
-  validates :movie_id,  presence: true
+  validates :user,  presence: true
+  validates :movie,  presence: true
   validates :user_id, uniqueness: { scope: :movie_id }
 end

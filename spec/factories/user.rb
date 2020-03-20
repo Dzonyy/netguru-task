@@ -3,7 +3,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     name { Faker::Internet.user_name }
     confirmed_at { Time.zone.now }
-    password 'password'
+    password "password"
 
     trait :with_comments do
       transient do
