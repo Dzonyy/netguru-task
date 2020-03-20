@@ -1,7 +1,6 @@
 module Api
   module V2
     class MoviesController < Api::ApplicationController
-
       def index
         render json: Movie.all.includes(:genre),
                each_serializer: Api::V2::MovieSerializer,
@@ -13,7 +12,6 @@ module Api
                serializer: Api::V2::MovieSerializer,
                include: [:genre]
       end
-
     end
   end
 end

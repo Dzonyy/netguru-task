@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
     member do
       get :send_info
     end
@@ -17,8 +18,9 @@ Rails.application.routes.draw do
       get :export
     end
   end
+  get "/users/most_active", to: "users#most_active"
 
-  namespace :api, defaults: {format: 'json'} do
+  namespace :api, defaults: { format: "json" } do
     namespace :v1 do
       resources :movies, only: [:index, :show]
     end
@@ -26,5 +28,4 @@ Rails.application.routes.draw do
       resources :movies, only: [:index, :show]
     end
   end
-
 end

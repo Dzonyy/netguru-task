@@ -1,6 +1,6 @@
 class TitleBracketsValidator < ActiveModel::Validator
   def validate(record)
-    brackets = { '{' => '}', '(' => ')', '[' => ']' }
+    brackets = { "{" => "}", "(" => ")", "[" => "]" }
     brackets_stack = []
     valid = true
 
@@ -16,6 +16,6 @@ class TitleBracketsValidator < ActiveModel::Validator
       end
     end
 
-    record.errors.add(:title, 'has unclosed bracket') unless brackets_stack.empty? && valid
+    record.errors.add(:title, "has unclosed bracket") unless brackets_stack.empty? && valid
   end
 end

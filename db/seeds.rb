@@ -68,6 +68,10 @@ movies = [
   }
 ]
 
+10.times do
+  Comment.create(movie_id: 1, user_id: 1, text: 'Super koment')
+end
+
 Rails.logger.info "Creating movies..."
 
 genre_ids = Genre.pluck(:id)
